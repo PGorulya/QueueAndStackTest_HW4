@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.EmptyStackException;
 
 public class MyStackImpl<T> implements MyStack {
 
@@ -17,6 +18,9 @@ public class MyStackImpl<T> implements MyStack {
 
     @Override
     public Object pop() {
+        if(isEmpty()){
+            throw new EmptyStackException();
+        }
         Object el = elements.get(elements.size() - 1);
         elements.remove(elements.size() -1);
         return el;
@@ -24,8 +28,7 @@ public class MyStackImpl<T> implements MyStack {
 
     @Override
     public boolean isEmpty() {
-        if (elements.size() != 0 )  return true;
-        else return false;
+        return elements.size() == 0;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 public class MyQueueImpl<T> implements MyQueue {
     ArrayList<Object> elements;
@@ -18,7 +19,7 @@ public class MyQueueImpl<T> implements MyQueue {
 
     @Override
     public Object poll() {
-        if (elements.size() == 0) return null;
+        if (isEmpty()) return null;
         else {
             Object el = elements.get(0);
             elements.remove(0);
@@ -28,14 +29,15 @@ public class MyQueueImpl<T> implements MyQueue {
 
     @Override
     public Object element() {
-        if (elements.size() == 0) return null;
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
         else return elements.get(0);
      }
 
     @Override
     public boolean isEmpty() {
-        if (elements.size() != 0 )  return true;
-        else return false;
+        return elements.size() == 0;
     }
 
 

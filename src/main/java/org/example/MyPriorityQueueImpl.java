@@ -27,9 +27,8 @@ public class MyPriorityQueueImpl<T> implements MyPriorityQueue {
 
     @Override
     public Object poll() {
-        if (elements.size() == 0) return null;
+        if (isEmpty()) return null;
         else {
-        //    elements.sort(comparator);
             T res = (T) elements.get(0);
             int idx = 0;
             for (int i = 0; i < elements.size(); i++) {
@@ -46,7 +45,7 @@ public class MyPriorityQueueImpl<T> implements MyPriorityQueue {
 
     @Override
     public Object peek() {
-        if (elements.size() == 0) return null;
+        if (isEmpty()) return null;
         else {
             T res = (T) elements.get(0);
             for (int i = 0; i < elements.size(); i++) {
@@ -60,8 +59,8 @@ public class MyPriorityQueueImpl<T> implements MyPriorityQueue {
 
     @Override
     public boolean isEmpty() {
-        if (elements.size() != 0 )  return true;
-        else return false;
+        return elements.size() == 0 ;
+
     }
 
     @Override

@@ -13,7 +13,7 @@ public class QueueAndStackTest {
         myStack.push("eee");
 
         System.out.println("STACK=====================");
-        while (myStack.isEmpty()) {
+        while (!myStack.isEmpty()) {
             System.out.println(myStack);
             System.out.println("Output: " + myStack.pop());
         }
@@ -27,7 +27,7 @@ public class QueueAndStackTest {
 
         System.out.println("QUEUE========================");
         System.out.println("Peek of Queue: " + myQueue.element());
-        while (myQueue.isEmpty()) {
+        while (!myQueue.isEmpty()) {
             System.out.println(myQueue);
             System.out.println("Output: " + myQueue.poll());
         }
@@ -48,7 +48,7 @@ public class QueueAndStackTest {
         System.out.println("PRIORITY QUEUE========================");
         System.out.println(myPrQueue);
         System.out.println("Peek of Priority Queue: " + myPrQueue.peek());
-        while (myPrQueue.isEmpty()) {
+        while (!myPrQueue.isEmpty()) {
             System.out.println(myPrQueue);
             System.out.println("Peek of Priority Queue: " + myPrQueue.poll());
         }
