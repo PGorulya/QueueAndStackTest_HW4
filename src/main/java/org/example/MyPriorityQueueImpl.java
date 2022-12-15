@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class MyPriorityQueueImpl<T> implements MyPriorityQueue {
+public class MyPriorityQueueImpl<T> implements MyPriorityQueue<T> {
 
-    List<Object> elements;
+    List<T> elements;
 
     private Comparator<? super T> comparator;
 
@@ -21,39 +21,39 @@ public class MyPriorityQueueImpl<T> implements MyPriorityQueue {
 
 
     @Override
-    public void add(Object el) {
+    public void add(T el) {
         elements.add(el);
     }
 
     @Override
-    public Object poll() {
+    public T poll() {
         if (isEmpty()) return null;
         else {
-            T res = (T) elements.get(0);
+            T el = elements.get(0);
             int idx = 0;
             for (int i = 0; i < elements.size(); i++) {
-                if(comparator.compare(res,(T)elements.get(i)) >= 0) {
-                    res = (T)elements.get(i);
+                if(comparator.compare(el, elements.get(i)) >= 0) {
+                    el = elements.get(i);
                     idx = i;
                 };
             }
             elements.remove(idx);
-            return res;
+            return el;
 
         }
     }
 
     @Override
-    public Object peek() {
+    public T peek() {
         if (isEmpty()) return null;
         else {
-            T res = (T) elements.get(0);
+            T el = elements.get(0);
             for (int i = 0; i < elements.size(); i++) {
-                if(comparator.compare(res,(T)elements.get(i)) >= 0) {
-                    res = (T)elements.get(i);
+                if(comparator.compare(el,elements.get(i)) >= 0) {
+                    el = elements.get(i);
                 };
             }
-            return res;
+            return el;
         }
     }
 

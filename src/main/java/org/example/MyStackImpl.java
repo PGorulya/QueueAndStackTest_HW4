@@ -3,25 +3,25 @@ package org.example;
 import java.util.ArrayList;
 import java.util.EmptyStackException;
 
-public class MyStackImpl<T> implements MyStack {
+public class MyStackImpl<T> implements MyStack<T> {
 
-    ArrayList<Object> elements;
+    ArrayList<T> elements;
 
     public MyStackImpl () {
         elements = new ArrayList<>();
     }
 
     @Override
-    public void push(Object el) {
+    public void push(T el) {
             elements.add(el);
     }
 
     @Override
-    public Object pop() {
+    public T pop() {
         if(isEmpty()){
             throw new EmptyStackException();
         }
-        Object el = elements.get(elements.size() - 1);
+        T el = elements.get(elements.size() - 1);
         elements.remove(elements.size() -1);
         return el;
     }

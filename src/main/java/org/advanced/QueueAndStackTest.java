@@ -1,4 +1,5 @@
-package org.example;
+package org.advanced;
+
 
 import java.util.Comparator;
 
@@ -11,8 +12,16 @@ public class QueueAndStackTest {
         myStack.push("ccc");
         myStack.push("ddd");
         myStack.push("eee");
+        myStack.push("fff");
+        myStack.push("ggg");
+        myStack.push("hhh");
+        myStack.push("iii");
+        myStack.push("jjj");
+        System.out.println(myStack);
+        myStack.push("kkk");
+        System.out.println(myStack);
 
-        System.out.println("STACK=====================");
+        System.out.println("STACK=============================================");
         while (!myStack.isEmpty()) {
             System.out.println(myStack);
             System.out.println("Output: " + myStack.pop());
@@ -25,7 +34,7 @@ public class QueueAndStackTest {
         myQueue.add("ddd");
         myQueue.add("eee");
 
-        System.out.println("QUEUE========================");
+        System.out.println("QUEUE==============================================");
         System.out.println("Peek of Queue: " + myQueue.element());
         while (!myQueue.isEmpty()) {
             System.out.println(myQueue);
@@ -34,7 +43,7 @@ public class QueueAndStackTest {
 
 
         MyPriorityQueueImpl<String> myPrQueue = new MyPriorityQueueImpl<>(new Comparator<String>() {
-             @Override
+            @Override
             public int compare(String o1, String o2) {
                 return o1.compareTo(o2);
             }
@@ -45,7 +54,7 @@ public class QueueAndStackTest {
         myPrQueue.add("bac");
         myPrQueue.add("acb");
 
-        System.out.println("PRIORITY QUEUE========================");
+        System.out.println("PRIORITY QUEUE===================================");
         System.out.println(myPrQueue);
         System.out.println("Peek of Priority Queue: " + myPrQueue.peek());
         while (!myPrQueue.isEmpty()) {

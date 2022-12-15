@@ -3,8 +3,8 @@ package org.example;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
-public class MyQueueImpl<T> implements MyQueue {
-    ArrayList<Object> elements;
+public class MyQueueImpl<T> implements MyQueue<T> {
+    ArrayList<T> elements;
 
 
     public MyQueueImpl () {
@@ -13,22 +13,22 @@ public class MyQueueImpl<T> implements MyQueue {
 
 
     @Override
-    public void add(Object el) {
+    public void add(T el) {
         elements.add(el);
     }
 
     @Override
-    public Object poll() {
+    public T poll() {
         if (isEmpty()) return null;
         else {
-            Object el = elements.get(0);
+            T el = elements.get(0);
             elements.remove(0);
             return el;
         }
     }
 
     @Override
-    public Object element() {
+    public T element() {
         if (isEmpty()) {
             throw new NoSuchElementException();
         }
