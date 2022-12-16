@@ -11,18 +11,12 @@ public class MyStackImpl<T> implements MyStack<T>{
     private Object[] elements;
     private int pointer;
     private float growthRate;
-//    private Comparator<T> comparator;
 
     public MyStackImpl() {
         elements = new Object[DEFAULT_SIZE];
         pointer = -1;
         growthRate = DEFAULT_GROWTH_RATE;
     }
-
-//   public MyStackImpl(Comparator<T> comparator) {
-//        super();
-//        this.comparator = comparator;
-//    }
 
     public MyStackImpl(float growthRate) {
         elements = new Object[DEFAULT_SIZE];
